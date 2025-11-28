@@ -1,0 +1,259 @@
+/* Reset y variables */
+*{box-sizing:border-box}
+:root{
+  --bg: rgba(231,227,215,1);
+  --dark: rgba(58,15,13,1);
+  --muted: rgba(160,115,115,1);
+  --accent: rgba(162,118,10,1);
+  --brand: rgba(110,25,25,1);
+  --white: #fff;
+  --shadow-md: 0 4px 4px rgba(0,0,0,0.25);
+  --radius-sm:10px;
+  --radius-pill:26px;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Istok Web", sans-serif;
+  --font-display: "Italiana", serif;
+  --font-cta: "Inknut Antiqua", serif;
+}
+
+/* Base */
+html,body{margin:0;height:100%;font-family:var(--font-sans);font-size:14px;-webkit-font-smoothing:antialiased}
+body{color:#111}
+
+/* Contenedor principal (conserva tamaño y posicionamiento original) */
+.app{
+  width:100%;
+  height:3034px;
+  background:var(--bg);
+  position:absolute;
+  top:0;
+  left:0;
+  overflow:hidden;
+}
+
+/* Ticker */
+.promo-ticker{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:44px;
+  display:flex;
+  align-items:center;
+  z-index:1000;
+  background: url("../images/v2039_43.png") center/cover no-repeat;
+  transition: transform .28s ease, opacity .2s ease;
+  will-change: transform;
+}
+.promo-bg{position:absolute;inset:0;background:var(--dark)}
+.promo-text{position:absolute;left:82px;top:14px;color:var(--muted);font-family:Inter;font-weight:400;font-size:12px}
+
+/* Clase que oculta la barra (desplaza hacia arriba) */
+.promo-ticker.collapsed{
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Header */
+.site-header{
+  width:100%;
+  height:109px;
+  position:absolute;
+  top:44px;
+  left:0;
+  background:url("../images/v2056_112.png") center/cover no-repeat;
+}
+.header-deco{position:absolute;inset:0;background:var(--dark)}
+
+/* Marca / logo */
+.brand-name{
+  position:absolute;top:0;left:82px;
+  color:rgba(184,134,11,1);
+  font-family:Istok\ Web, sans-serif;font-weight:700;font-size:36px;
+  display:flex;align-items:center;gap:12px;
+}
+.imagen-logo{position:absolute;top:5px;left:10px;width:100px;object-fit:contain;opacity:.95}
+
+/* NAV (mantiene posiciones y estilos visuales) */
+.nav-links{position:absolute;top:20px;left:884px;width:556px;color:rgba(204,204,204,1);font-family:Istok\ Web;font-weight:700;font-size:20px}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:80px;align-items:center}
+.nav-item{margin:0;opacity:0;transform:translateY(12px)}
+@keyframes navAppear{to{opacity:1;transform:translateY(0)}}
+.nav-item:nth-child(1){animation:navAppear .6s ease .08s forwards}
+.nav-item:nth-child(2){animation:navAppear .6s ease .16s forwards}
+.nav-item:nth-child(3){animation:navAppear .6s ease .24s forwards}
+.nav-item:nth-child(4){animation:navAppear .6s ease .32s forwards}
+.nav-item:nth-child(5){animation:navAppear .6s ease .40s forwards}
+
+/* Botones de navegación */
+.nav-btn{
+  -webkit-appearance:none;appearance:none;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  color:var(--white);
+  padding:10px 20px;
+  border-radius:var(--radius-pill);
+  cursor:pointer;
+  text-transform:uppercase;font-weight:700;letter-spacing:.6px;
+  transition:transform .22s ease, background .22s ease, box-shadow .22s ease;
+  position:relative;overflow:hidden;font-family:inherit;font-size:16px;outline:none;
+}
+.nav-btn::after{
+  content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;
+  background:linear-gradient(90deg, rgba(255,255,255,0), #c0392b 60%, rgba(255,255,255,0.9));
+  transform:translateX(-100%);transition:transform .36s cubic-bezier(.2,.8,.2,1);
+}
+.nav-btn:hover,.nav-btn:focus{transform:translateY(-6px) scale(1.02);background:rgba(255,255,255,0.12);box-shadow:0 10px 24px rgba(0,0,0,0.22)}
+.nav-btn:hover::after,.nav-btn:focus::after{transform:translateX(0)}
+.nav-btn:focus-visible{box-shadow:0 0 0 4px rgba(192,57,43,0.12);border-radius:var(--radius-pill)}
+
+/* ligero movimiento en reposo */
+@keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-3px)}100%{transform:translateY(0)}}
+.nav-item:nth-child(1) .nav-btn{animation:floatY 6s ease-in-out 1s infinite}
+.nav-item:nth-child(2) .nav-btn{animation:floatY 6.2s ease-in-out 1.2s infinite}
+.nav-item:nth-child(3) .nav-btn{animation:floatY 6.4s ease-in-out 1.4s infinite}
+.nav-item:nth-child(4) .nav-btn{animation:floatY 6.6s ease-in-out 1.6s infinite}
+.nav-item:nth-child(5) .nav-btn{animation:floatY 6.8s ease-in-out 1.8s infinite}
+
+/* Hero (conserva imagenes y posiciones) */
+.hero{width:100%;height:539px;position:absolute;top:153px;left:0;background:url("../images/v2056_111.png") center/cover no-repeat;overflow:hidden}
+.hero-deco{position:absolute;inset:0;background:url("../images/v2054_42.png") center/cover no-repeat}
+.hero-subtitle{position:absolute;top:291px;left:402px;width:639px;color:var(--white);text-shadow:0 4px 14px rgb(0, 0, 0);font-family:Inter;font-weight:300;font-size:24px}
+.hero-title{position:absolute;top:185px;left:357px;width:725px;color:var(--white);text-shadow:0 4px 14px rgba(0, 0, 0, 0.81);font-family:var(--font-display);font-size:70px;margin:0}
+.hero-cta{position:absolute;top:361px;left:555px;width:329px;color:#000;font-family:var(--font-cta);font-size:24px;  }
+
+
+.hero-cta,
+a.hero-cta,
+button.hero-cta {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  background: rgba(255, 223, 39, 0.9); /* mantiene el aspecto claro */
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: var(--font-cta);
+  font-size: 24px; /* mantiene el tamaño original */
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  box-sizing: border-box;
+}
+
+/* Hover / foco (misma interacción que el botón original) */
+.hero-cta:hover,
+.hero-cta:focus,
+button.hero-cta:hover,
+button.hero-cta:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgb(255, 255, 255);
+  background: rgba(79, 255, 56, 0.95);
+  outline: none;
+  color: #fff;
+}
+
+/* Foco accesible */
+.hero-cta:focus-visible,
+button.hero-cta:focus-visible {
+  outline: 3px solid rgba(192,57,43,0.12);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Productos (centrado dentro del apartado, conserva altura y fondo) */
+.products{
+  width: calc(100% - 330px); /* mantiene el margen lateral original de 165px a cada lado */
+  max-width: 1250px;         /* evita que crezca demasiado en pantallas muy grandes */
+  height:561px;
+  position:absolute;
+  top:797px;
+  left:50%;
+  transform:translateX(-50%); /* centra exactamente */
+  background:url("../images/v2056_110.png") center/cover no-repeat;
+}
+.products-deco{position:absolute;inset:0;background:rgba(232,232,232,1);border-radius:var(--radius-sm);box-shadow:8px 14px 6px rgba(0,0,0,.4)}
+.products-title{position:absolute;top:24px;left:0;width:100%;text-align:center;color:var(--brand);font-family:var(--font-display);font-size:40px}
+
+/* Tarjetas de producto base */
+.product{width:301px;height:382px;position:absolute;border-radius:var(--radius-sm);box-shadow:var(--shadow-md);overflow:hidden;background-color:#fff}
+.product__media{width:301px;height:382px;position:absolute;top:0;left:0;background:#fff;border-radius:var(--radius-sm);box-shadow:var(--shadow-md)}
+.product__title{position:absolute;left:12px;top:191px;width:276px;font-family:var(--font-display);font-size:24px;color:#000;margin:0}
+.product__desc{position:absolute;left:12px;top:229px;width:276px;font-family:Inter;font-weight:300;font-size:13px;color:#000;text-align:justify}
+.product__price{position:absolute;left:180px;top:303px;font-weight:600;font-size:15px}
+.product__cta-bg{position:absolute;left:12px;right:12px;bottom:50px;height:31px;background:var(--accent);border-radius:20px}
+.product__cta{position:absolute;left:12px;right:12px;bottom:50px;height:31px;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:var(--font-cta);font-size:13px}
+.product__overlay{position:absolute;top:0;left:0;width:301px;height:176px;overflow:hidden}
+
+/* variantes (solo background y posición) */
+.product--duo{background:url("../images/v2056_109.png") center/cover no-repeat;top:124px;left:740px}
+.product--white{background:url("../images/v2056_96.png") center/cover no-repeat;top:124px;left:404px}
+.product--classic{background:url("../images/v2056_81.png") center/cover no-repeat;top:124px;left:68px}
+.product--white .product__desc{top:242px}
+.product--white .product__title{top:193px}
+.product--classic .product__title{left:13px;top:191px;text-align:center}
+.product__media--alt{position:absolute;top:0;left:0;width:301px;height:176px;background:url("../images/v2056_61.png") center/cover no-repeat}
+
+/* About */
+.about{
+  width: calc(100% - 330px); /* mantiene margen lateral equivalente a 165px a cada lado */
+  max-width: 1250px;         /* evita crecimiento excesivo en pantallas grandes */
+  height: 561px;
+  position: absolute;
+  top: 1481px;
+  left: 50%;
+  transform: translateX(-50%); /* centra exactamente */
+  background: url("../images/v2056_127.png") center/cover no-repeat;
+}
+.about-deco, .about-bg{position:absolute;inset:0;background:rgba(232,232,232,1);border-radius:var(--radius-sm);box-shadow:8px 14px 6px rgba(0,0,0,.4)}
+.about-title{position:absolute;top:40px;left:0;width:100%;text-align:center;color:var(--brand);font-family:var(--font-display);font-size:40px}
+.about-deco--small{position:absolute;top:94px;left:523px;width:64px;height:auto;background:url("../images/v2056_117.png");border:3px solid var(--brand)}
+.about-subtitle{position:absolute;top:151px;left:40px;width:394px;color:rgba(94,25,25,1);font-family:var(--font-display);font-size:40px}
+.about-section{position:absolute;top:339px;left:40px;width:560px;color:rgba(94,25,25,1);font-family:var(--font-display);font-size:40px}
+.about-text{position:absolute;top:206px;left:40px;width:598px;font-family:Inter;font-size:16px}
+.about-text--secondary{position:absolute;top:393px;left:40px;width:553px;font-family:Inter;font-size:16px}
+.about-divider{position:absolute;top:151px;left:640px;width:401px;height:351px;background:url("../images/v2056_122.png") center/cover no-repeat;border-radius:20px;box-shadow:6px 4px 4px rgba(0,0,0,.3)}
+
+/* Contact */
+.contact{
+  width: calc(100% - 330px);
+  max-width: 1250px;
+  height: 561px;
+  position: absolute;
+  top: 2165px;
+  left: 50%;
+  transform: translateX(-50%); /* centra exactamente */
+  background: url("../images/v2058_140.png") center/cover no-repeat;
+}
+.contact-deco{position:absolute;inset:0;background:rgba(232,232,232,1);border-radius:var(--radius-sm);box-shadow:8px 14px 6px rgba(0,0,0,.4)}
+.contact-title{position:absolute;top:49px;left:1px;width:100%;text-align:center;color:var(--brand);font-family:var(--font-display);font-size:40px}
+.contact-map{position:absolute;top:103px;left:524px;width:64px;height:auto;background:url("../images/v2056_133.png") no-repeat center;border:3px solid var(--brand)}
+.contact-deco--2{position:absolute;top:227px;left:554px;width:479px;height:271px;background:url("../images/v2056_135.png") center/cover no-repeat;border-radius:10px}
+.contact-subtitle{position:absolute;top:148px;left:74px;width:366px;font-family:var(--font-display);font-size:40px;text-align:center}
+.contact-find{position:absolute;top:148px;left:638px;width:312px;font-family:var(--font-display);font-size:40px;text-align:center}
+.contact-info{position:absolute;top:227px;left:105px;width:386px;font-family:Inter;font-weight:300;font-size:20px}
+
+/* Footer */
+.site-footer{width:100%;height:232px;position:absolute;top:2802px;left:0;background:url("../images/v2058_162.png") center/cover no-repeat}
+.footer-bg{position:absolute;top:82px;left:0;width:100%;height:150px;background:rgba(77,77,77,1)}
+.footer-deco{position:absolute;top:0;left:0;width:100%;height:82px;background:linear-gradient(rgba(110,25,25,1),rgba(65,49,49,1))}
+.footer-warning{position:absolute;top:185px;left:671px;color:var(--white);font-family:Inter;font-size:12px}
+.footer-warning--secondary{position:absolute;top:0;left:0;width:100%;color:var(--white);font-family:Inter;font-size:30px;text-align:center}
+
+/* Footer items posicionados via nav .footer-nav > .footer-item */
+.footer-nav{position:relative}
+.footer-nav .footer-item{position:absolute;color:var(--white);font-family:Inter;font-size:12px}
+.footer-nav .footer-item:nth-child(1){top:124px;left:550px;width:52px}
+.footer-nav .footer-item:nth-child(2){top:124px;left:632px;width:52px}
+.footer-nav .footer-item:nth-child(3){top:124px;left:671px;width:384px}
+.footer-nav .footer-item:nth-child(4){top:124px;left:714px;width:268px}
+.footer-nav .footer-item:nth-child(5){top:124px;left:1012px;width:44px}
+.footer-nav .footer-item:nth-child(6){top:124px;left:1086px;width:26px}
+
+/* Utilidades */
+.hidden{display:none!important}
+.center{display:flex;align-items:center;justify-content:center}
