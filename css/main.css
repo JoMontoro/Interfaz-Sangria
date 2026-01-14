@@ -152,7 +152,7 @@ button.hero-cta:hover,
 button.hero-cta:focus {
   transform: translateY(-4px);
   box-shadow: 0 8px 18px rgb(255, 255, 255);
-  background: rgba(79, 255, 56, 0.95);
+  background: var(--brand);
   outline: none;
   color: #fff;
 }
@@ -181,22 +181,30 @@ button.hero-cta:focus-visible {
 
 /* Tarjetas de producto base */
 .product{width:301px;height:382px;position:absolute;border-radius:var(--radius-sm);box-shadow:var(--shadow-md);overflow:hidden;background-color:#fff}
-.product__media{width:301px;height:382px;position:absolute;top:0;left:0;background:#fff;border-radius:var(--radius-sm);box-shadow:var(--shadow-md)}
+.product__media{width:301px;height:382px;position:absolute;top:0;left:0;background:#fff;border-radius:var(--radius-sm);box-shadow:var(--shadow-md);background-size:cover;background-position:center;background-repeat: no-repeat;}
 .product__title{position:absolute;left:12px;top:191px;width:276px;font-family:var(--font-display);font-size:24px;color:#000;margin:0}
-.product__desc{position:absolute;left:12px;top:229px;width:276px;font-family:Inter;font-weight:300;font-size:13px;color:#000;text-align:justify}
-.product__price{position:absolute;left:180px;top:303px;font-weight:600;font-size:15px}
-.product__cta-bg{position:absolute;left:12px;right:12px;bottom:50px;height:31px;background:var(--accent);border-radius:20px}
-.product__cta{position:absolute;left:12px;right:12px;bottom:50px;height:31px;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:var(--font-cta);font-size:13px}
+.product__desc{position:absolute;left:12px;top:229px;width:276px;font-family:Inter;font-weight:300;font-size:15px;color:#000;text-align:justify}
+.product__price{position:absolute;left:180px;top:310px;font-weight:600;font-size:17px}
+/* Botón de llamada a la acción */
+.product__cta-bg{position:absolute;left:12px;right:12px;bottom:5px;height:31px;background:var(--accent);border-radius:20px}
+.product__cta{position:absolute;left:12px;right:12px;bottom:5px;height:31px;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:var(--font-cta);font-size:13px; text-decoration:none}
 .product__overlay{position:absolute;top:0;left:0;width:301px;height:176px;overflow:hidden}
 
 /* variantes (solo background y posición) */
-.product--duo{background:url("../images/v2056_109.png") center/cover no-repeat;top:124px;left:740px}
-.product--white{background:url("../images/v2056_96.png") center/cover no-repeat;top:124px;left:404px}
-.product--classic{background:url("../images/v2056_81.png") center/cover no-repeat;top:124px;left:68px}
-.product--white .product__desc{top:242px}
-.product--white .product__title{top:193px}
-.product--classic .product__title{left:13px;top:191px;text-align:center}
+.product--duo {background:white;top:124px;left:800px}
+.product--white{background:white;top:124px;left:464px}
+.product--classic{background:white;top:124px;left:128px}
+/* Ajustes específicos para la variante Sangría Blanca */
+.product--white .product__desc{top:250px}      /* Mueve la descripción más abajo */
+.product--white .product__title{top:193px}     /* Mueve el título más abajo */
+
+/* Ajustes específicos para la variante Sangría Clásica */
+.product--classic .product__title{left:13px;top:191px;text-align:center}  /* Centra el título */
+
+/* imágenes de producto referenciado dentro de las cards*/
 .product__media--alt{position:absolute;top:0;left:0;width:301px;height:176px;background:url("../images/v2056_61.png") center/cover no-repeat}
+.product__media--alt2{position:absolute;top:0;left:0;width:301px;height:176px;background:url("../images/v2056_62.png") center/cover no-repeat}
+.product__media--alt3{position:absolute;top:0;left:0;width:301px;height:176px;background:url("../images/v2056_64.png") center/cover no-repeat}
 
 /* About */
 .about{
@@ -257,3 +265,40 @@ button.hero-cta:focus-visible {
 /* Utilidades */
 .hidden{display:none!important}
 .center{display:flex;align-items:center;justify-content:center}
+
+
+/* Animación de flotación */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* Estilos para el botón flotante de WhatsApp */
+.float {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 60%;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index:999;
+  animation: float 3s ease-in-out infinite;
+  align-items: center;
+  justify-content: center;
+}
+.fa-whatsapp {
+  font-size: 75px;
+}
+.float:hover {
+  background-color: #25d366;
+}
