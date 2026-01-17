@@ -3,3 +3,5 @@ Se desarrollar mediante las Tecnologias (HTML, CSS Y JS) para las diferentes int
 
 # Desarrollo
 Mejorar mediante las tecnologias dichas la expansion en el mercado o rubro que se encuentra esta empresa o emprendimiento, y automatizar el flujo de trabajo para poder mejorar las ventas y aumentas los ingresos de ello.
+
+#Despliegue "sangría-artesanal.vercel.app"
