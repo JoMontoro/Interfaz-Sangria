@@ -346,14 +346,16 @@ button.hero-cta:focus-visible {
   max-width: 1250px; /* evita que crezca demasiado en pantallas muy grandes */
   height: 561px;
   position: absolute;
-  top: 797px;
-  left: 50%;
-  transform: translateX(-50%); /* centra exactamente */
+  top: 1100px; 
+  left: 2000px;
+  transform: translate(300px, -50%); /* centra exactamente en ambos ejes */
   background: url("../images/v2056_110.png") center/cover no-repeat;
 }
 .products-deco {
   position: absolute;
-  inset: 0;
+  inset: 0px;
+  left: 20px;
+  width: 1260px;
   background: rgba(232, 232, 232, 1);
   border-radius: var(--radius-sm);
   box-shadow: 8px 14px 6px rgba(0, 0, 0, 0.4);
@@ -361,7 +363,7 @@ button.hero-cta:focus-visible {
 .products-title {
   position: absolute;
   top: 24px;
-  left: 0;
+  left: 20px;
   width: 100%;
   text-align: center;
   color: var(--brand);
@@ -518,10 +520,9 @@ button.hero-cta:focus-visible {
   max-width: 1250px; /* evita crecimiento excesivo en pantallas grandes */
   height: 561px;
   position: absolute;
-  top: 1481px;
+  top: 800px;
   left: 50%;
   transform: translateX(-50%); /* centra exactamente */
-  background: url("../images/v2056_127.png") center/cover no-repeat;
 }
 .about-deco,
 .about-bg {
@@ -614,7 +615,7 @@ button.hero-cta:focus-visible {
   max-width: 1250px;
   height: 561px;
   position: absolute;
-  top: 2165px;
+  top: 800px;
   left: 50%;
   transform: translateX(-50%); /* centra exactamente */
   background: url("../images/v2058_140.png") center/cover no-repeat;
@@ -922,84 +923,121 @@ button.hero-cta:focus-visible {
     max-width: 320px;
     margin: 0 auto;
   }
-
-  /* =================== ABOUT =================== */
-  .about {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    height: auto;
-    padding: 60px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 100px;
-    margin-bottom: 120px;
-    overflow: hidden;
+  .products-deco{
+    position: absolute;
+    inset: 20px;
+    left: 20px;
+    width: 980px;
+    background: rgba(232, 232, 232, 1);
+    border-radius: var(--radius-sm);
+    box-shadow: 8px 14px 6px rgba(0, 0, 0, 0.4);
   }
-
-  .about-title {
-    position: relative;
-    margin: 0;
-    text-align: center;
-    order: 0;
-  }
-
-  .about-section {
-    position: relative;
+  .product__media{
+    width: 350px;
+    height: 400px;
+    position: absolute;
+    top: 0;
     left: 0;
-    margin: 0;
-    margin-top: -60px; /* AJUSTA AQUÍ qué tan juntos quedan */
-    text-align: center;
-    line-height: 1.2; /* reduce el espacio vertical */
-    order: 0;
+    background: #fff;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .product__media--alt,
+  .product__media--alt2,
+  .product__media--alt3 {
+    
+    width: 350px;
+    height: 180px;
   }
 
-.about-text{
-  position:relative;
-  width:100%;
-  max-width:600px;
-  margin:24px auto 0;
-  text-align:center;
-  margin-top: -250px;
-  left:0;
-  order:1;
+  
+
+/* =================== ABOUT =================== */
+.about {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  height: auto;
+  padding: 60px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+  margin-bottom: 120px;
+  overflow: hidden;
 }
 
-.about-text--secondary{
-  position:relative;
-  width:100%;
-  max-width:600px;
-  margin:24px auto 0;   /* asegura visibilidad */
-  text-align:center;
-  left:0;
-  order:1;
-  font-style:italic;
+.about-title {
+  position: relative;
+  margin: 0;
+  text-align: center;
+}
+
+.about-deco,
+.about-bg {
+  position: absolute;
+  inset: 30px; /* O inset: 0 en desktop */
+  /* background: rgba(232, 232, 232, 1); */ /* ELIMINA esta línea */
+  border-radius: var(--radius-sm);
+  box-shadow: 8px 14px 6px rgba(0, 0, 0, 0.4);
+}
+
+.about-deco--small {
+  position: relative;
+  top: 50px;
+  left: auto;
+  width: 500px;
+  height: auto;
+  margin-top: -100px;
+  background: url("../images/v2056_117.png") center/cover no-repeat; /* AGREGADO: Solo este fondo (imagen) */
+}
+
+.about-section {
+  position: relative;
+  left: 0;
+  margin: 0;
+  margin-top: -80px; /* AJUSTA AQUÍ qué tan juntos quedan */
+  text-align: center;
+  line-height: 4.9; /* reduce el espacio vertical */
+}
+
+.about-text {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 24px auto 0;
+  text-align: center;
+  margin-top: -190px;
+  left: 0;
+}
+
+.about-text--secondary {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 24px auto 0;   /* asegura visibilidad */
+  text-align: center;
+  left: 0;
+  order: 1;
+  font-style: italic;
   margin-top: 300px;
 }
 
-  .about-divider {
-  position:relative;
-  width:100%;
-  max-width:360px;
-  height:240px;
-  margin:32px auto 0;
-  background:url("../images/v2056_122.png") center/cover no-repeat;
-  border-radius:20px;
-  box-shadow:6px 4px 4px rgba(0,0,0,.3);
-  order:2;
-  }
-  .about-deco--small {
-    position: absolute;
-    top: 150px;
-    left: 300px;
-    width: 450px;
-    height: auto;
-  }
+.about-divider {
+  position: relative;
+  top: -200px;
+  left: 0px;
+  width: 450px;
+  height: 300px; 
+  order: 2;
+}
 
-  /* =================== CONTACT (MISMA ESTRUCTURA QUE PRODUCTS) =================== */
-  .contact {
+/* =================== CONTACT =================== */
+.contact {
     position: relative;
     top: auto;
     left: auto;
@@ -1012,6 +1050,13 @@ button.hero-cta:focus-visible {
     gap: 24px;
     margin-bottom: 120px;
   }
+  .contact-deco {
+    position: absolute;
+    inset: 0px; /* O inset: 0 en desktop */
+    /* background: rgba(232, 232, 232, 1); */ /* ELIMINA esta línea */
+    border-radius: var(--radius-sm);
+    box-shadow: 8px 14px 6px rgba(0, 0, 0, 0.4);
+  }
 
   .contact-title {
     position: relative;
@@ -1019,27 +1064,46 @@ button.hero-cta:focus-visible {
     text-align: center;
   }
 
-  .contact-subtitle,
-  .contact-find {
-    position: relative;
-    margin: 0;
-    text-align: center;
-  }
+.contact-subtitle {
+  position: absolute; /* Cambiado de relative a absolute */
+  top: 210px;
+  left: 100px; /* Posición a la izquierda, similar a desktop */
+  margin: 0;
+  width: 400px;
+  font-family: var(--font-display);
+  font-size: 40px;
+  text-align: center;
+}
+
+.contact-find {
+  position: absolute; /* Cambiado de relative a absolute */
+  top: 210px; /* Misma línea horizontal que .contact-subtitle */
+  left: 600px; /* Posición a la derecha, ajusta para que no se superpongan (ej. 500px para espacio) */
+  margin: 0;
+  margin-left: 0; /* Eliminado, ya que usamos left */
+  width: 312px;
+  font-family: var(--font-display);
+  font-size: 40px;
+  text-align: center;
+}
 
   .contact-info {
-    position: relative;
+    position: absolute;
     width: 100%;
     max-width: 500px;
+    left: 50px;
     margin: 0 auto;
     text-align: center;
   }
 
   .contact-deco--2 {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    margin: 0 auto;
-    order: 0;
+position: absolute;
+    top: 130px; /* Misma línea horizontal que .contact-map para "recta" */
+    left: 600px; /* Derecha del mapa, ajusta para espacio (ej. 600px si es más ancho) */
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
   }
 
   .contact-deco--2 iframe {
