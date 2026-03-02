@@ -1024,16 +1024,19 @@ button.hero-cta:focus-visible {
   left: 0;
   order: 1;
   font-style: italic;
-  margin-top: 300px;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(160, 115, 115, 0.3);
 }
 
 .about-divider {
   position: relative;
-  top: -200px;
+  top: auto; /* dejar en flujo normal */
   left: 0px;
   width: 450px;
-  height: 300px; 
-  order: 2;
+  height: 300px;
+  order: 2; /* aparece después de los textos */
+  margin-top: 40px; /* separa de la frase */
 }
 
 /* =================== CONTACT =================== */
@@ -1047,68 +1050,86 @@ button.hero-cta:focus-visible {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 40px;
     margin-bottom: 120px;
+    width: 100%;
   }
   .contact-deco {
     position: absolute;
-    inset: 0px; /* O inset: 0 en desktop */
-    /* background: rgba(232, 232, 232, 1); */ /* ELIMINA esta línea */
+    inset: 30px;
+    background: rgba(232, 232, 232, 1);
     border-radius: var(--radius-sm);
     box-shadow: 8px 14px 6px rgba(0, 0, 0, 0.4);
   }
 
   .contact-title {
     position: relative;
-    margin: 0;
+    margin: 0 0 30px 0;
+    text-align: center;
+    font-size: 32px;
+  }
+
+  .contact-map {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 0 auto 20px;
+    background: url("../images/v2056_133.png") no-repeat center;
+    border: 3px solid var(--brand);
+  }
+
+  .contact-subtitle {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 15px auto 0;
+    width: 100%;
+    max-width: 550px;
+    font-family: var(--font-display);
+    font-size: 28px;
     text-align: center;
   }
 
-.contact-subtitle {
-  position: absolute; /* Cambiado de relative a absolute */
-  top: 210px;
-  left: 100px; /* Posición a la izquierda, similar a desktop */
-  margin: 0;
-  width: 400px;
-  font-family: var(--font-display);
-  font-size: 40px;
-  text-align: center;
-}
-
-.contact-find {
-  position: absolute; /* Cambiado de relative a absolute */
-  top: 210px; /* Misma línea horizontal que .contact-subtitle */
-  left: 600px; /* Posición a la derecha, ajusta para que no se superpongan (ej. 500px para espacio) */
-  margin: 0;
-  margin-left: 0; /* Eliminado, ya que usamos left */
-  width: 312px;
-  font-family: var(--font-display);
-  font-size: 40px;
-  text-align: center;
-}
+  .contact-find {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 15px auto 0;
+    width: 100%;
+    max-width: 550px;
+    font-family: var(--font-display);
+    font-size: 28px;
+    text-align: center;
+  }
 
   .contact-info {
-    position: absolute;
+    position: relative;
+    left: auto;
+    top: auto;
     width: 100%;
-    max-width: 500px;
-    left: 50px;
-    margin: 0 auto;
+    max-width: 550px;
+    margin: 20px auto 0;
     text-align: center;
   }
 
   .contact-deco--2 {
-position: absolute;
-    top: 130px; /* Misma línea horizontal que .contact-map para "recta" */
-    left: 600px; /* Derecha del mapa, ajusta para espacio (ej. 600px si es más ancho) */
-    width: 400px;
-    height: 400px;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
     border-radius: 10px;
     overflow: hidden;
+    margin: 20px auto 0;
   }
 
   .contact-deco--2 iframe {
     width: 100%;
-    height: 240px;
+    height: 220px;
     display: block;
   }
 
@@ -1204,6 +1225,21 @@ main {
 .contact {
   position: relative;
   width: 100%;
+}
+
+/* -------- MEDIA SMALL (800px) -------- */
+@media (max-width: 800px) {
+  .promo-ticker {
+    display: none;
+  }
+
+  .site-header {
+    top: 0 !important;
+  }
+
+  .hero {
+    top: 0 !important;
+  }
 }
 
 /* -------- MOBILE -------- */
@@ -1303,47 +1339,134 @@ main {
 
   /* PRODUCTS */
   .products {
-    width: 90%;
+    width: 100%;
+    padding: 40px 15px;
+    gap: 20px;
+  }
+
+  .products-title {
+    font-size: 30px;
+    margin-bottom: 5px;
+
+  }
+  .product__title{
+    width: 100%;
+    left: auto;
+    font-size: 20px;
+    text-align: center;
+  }
+  .product__desc{
+    width: 100%;
+    left: auto;
+    font-size: 13px;
+    line-height: 1.4;
+      /* Ajuste correcto del texto */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  /* Control de desbordamiento */
+  overflow: hidden;
+
+  /* Mejor legibilidad */
+  padding: 8px 10px;
+  box-sizing: border-box;
+  }
+  /* make gray background align with edges on mobile but shift a bit right */
+  .products-deco {
+    inset: 0;
+    left: 15px;            /* small right offset */
+    width: calc(100% - 40px);
   }
 
   .product {
     width: 100%;
-    max-width: 320px;
+    max-width: 280px;
   }
 
   /* ABOUT */
   .about {
-    width: 90%;
-    padding-bottom: 40px;
+    width: 100%;
+    padding: 40px 15px;
+    gap: 60px;
+    margin-bottom: 60px;
   }
 
   .about-title {
-    font-size: 32px;
+    font-size: 28px;
   }
 
-  .about-section,
-  .about-text,
+  .about-deco--small {
+    width: 350px;
+    margin-top: -60px;
+  }
+
+  .about-section {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    padding: 0 15px;
+    text-align: center;
+    font-size: 18px;
+    margin-top: -50px;
+  }
+
+  .about-text {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    padding: 0 15px;
+    text-align: center;
+    font-size: 14px;
+    max-width: 90%;
+    margin-top: -100px;
+  }
+
   .about-text--secondary {
     position: relative;
     left: auto;
     top: auto;
     width: 100%;
-    padding: 0 20px;
+    padding: 200px 10px 0;
     text-align: center;
+    font-size: 20px;
+    margin-top: 50px;
+    border-top: 2px solid rgba(160, 115, 115, 0.3);
   }
 
   .about-divider {
-    width: 100%;
+    width: 300px;
     height: 220px;
+    top: auto;
+    margin-top: 40px;
+    order: 2;
   }
 
   /* CONTACT */
   .contact {
-    width: 90%;
-    padding-bottom: 40px;
+    width: 100%;
+    padding: 35px 15px;
+    margin-bottom: 50px;
+    gap: 15px;
   }
 
-  .contact-title,
+  .contact-deco {
+    position: absolute;
+    inset: 20px;
+    background: rgba(232, 232, 232, 1);
+    border-radius: var(--radius-sm);
+    box-shadow: 8px 14px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  .contact-title {
+    position: relative;
+    margin: 0 0 15px 0;
+    text-align: center;
+    font-size: 26px;
+  }
+
   .contact-subtitle,
   .contact-find {
     position: relative;
@@ -1351,6 +1474,16 @@ main {
     top: auto;
     width: 100%;
     text-align: center;
+    font-size: 18px;
+    margin: 8px 0;
+  }
+
+  .contact-map {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    margin: 20px auto;
+    height: auto;
   }
 
   .contact-info {
@@ -1358,23 +1491,64 @@ main {
     left: auto;
     top: auto;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 15px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  .contact-info__item {
+    margin: 8px 0;
+  }
+
+  .contact-deco--2 {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    margin: 10px auto;
+    height: auto;
   }
 
   .contact-deco--2 iframe {
     width: 100%;
-    height: 220px;
+    height: 180px;
   }
 
   /* FOOTER */
   .site-footer {
-    height: auto;
+     width: 100%;
+  background: rgba(77, 77, 77, 1);
+  padding-bottom: 0px; /* espacio interno inferior */
   }
-
+  
   .footer-nav {
     grid-template-columns: 1fr;
-    padding: 120px 20px 40px;
-    gap: 20px;
+    padding: 60px 15px 20px;
+    gap: 12px;
+  }
+
+  .footer-nav-group {
+    gap: 4px;
+  }
+
+  .footer-nav-title {
+    font-size: 11px;
+    margin: 0 0 5px 0;
+  }
+
+  .footer-nav-list {
+    gap: 3px;
+  }
+
+  .footer-link {
+    font-size: 10px;
+  }
+
+  .footer-warning {
+    font-size: 10px;
+  }
+
+  .footer-warning--secondary {
+    font-size: 16px;
   }
 
   .footer-warning {
