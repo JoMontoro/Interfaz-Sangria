@@ -6,4 +6,4 @@ Mejorar mediante las tecnologias dichas la expansion en el mercado o rubro que s
 
 #Despliegue "sangría-artesanal.vercel.app"
 
-![Imagen de la Interfaz](images/pro1)
+![Imagen de la Interfaz](images/pro1.png)
